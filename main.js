@@ -20,12 +20,11 @@ async function main() {
     const prs = result.data.filter((el) => state === 'all' || el.state === state);
     const pr = prs[0];
 
-    core.info(`Setting output: pr: ${(pr && pr.number) || ''}`);
-    core.setOutput('pr', (pr && pr.number) || '');
-    core.info(`Setting output: number: ${(pr && pr.number) || ''}`);
-    core.setOutput('number', (pr && pr.number) || '');
-    core.info(`Setting output: title: ${(pr && pr.title) || ''}`);
+    core.info(`${owner}/${repo} PR Title: ${(pr && pr.title) || 'NOT FOUND'}`);
+    core.info(`${owner}/${repo} PR Number: ${(pr && pr.number) || 'NOT FOUND'}`);
     core.setOutput('title', (pr && pr.title) || '');
+    core.setOutput('pr', (pr && pr.number) || '');
+    core.setOutput('number', (pr && pr.number) || '');
     core.setOutput('body', (pr && pr.body) || '');
 }
 
