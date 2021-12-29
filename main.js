@@ -28,4 +28,4 @@ async function main() {
     core.setOutput('body', (pr && pr.body) || '');
 }
 
-main().catch((err) => core.setFailed(err.message));
+main().catch((err) => core.info(err.message));
